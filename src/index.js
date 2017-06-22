@@ -21,7 +21,7 @@ class ChartComponent extends React.Component {
     options: PropTypes.object,
     plugins: PropTypes.arrayOf(PropTypes.object),
     redraw: PropTypes.bool,
-    type: PropTypes.oneOf(['doughnut', 'pie', 'line', 'bar', 'horizontalBar', 'radar', 'polarArea', 'bubble']),
+    type: PropTypes.oneOf(['doughnut', 'pie', 'line', 'bar', 'horizontalBar', 'radar', 'polarArea', 'bubble', 'scatter']),
     width: PropTypes.number,
     datasetKeyProvider: PropTypes.func
   }
@@ -267,6 +267,18 @@ export class Line extends React.Component {
         {...this.props}
         ref={ref => this.chart_instance = ref && ref.chart_instance}
         type='line'
+      />
+    );
+  }
+}
+
+export class Scatter extends React.Component {
+  render() {
+    return (
+      <ChartComponent
+        {...this.props}
+        ref={ref => this.chart_instance = ref && ref.chart_instance}
+        type='scatter'
       />
     );
   }
